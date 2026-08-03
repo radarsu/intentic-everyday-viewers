@@ -1,0 +1,18 @@
+{
+    "publisher": "intentic",
+    "name": "everyday-viewers",
+    "version": "1.0.0",
+    "category": "workspace",
+    "icon": "file",
+    "engines": { "intentic": "^0.4.0" },
+    "entry": "dist/extension.js",
+    "contributes": {
+        "viewers": [
+            { "id": "calendar", "extensions": ["ics", "ical", "ifb"], "fetch": "text" },
+            { "id": "table", "extensions": ["csv", "tsv"], "fetch": "text" },
+            { "id": "track", "extensions": ["gpx"], "fetch": "text" },
+            { "id": "subtitles", "extensions": ["srt", "vtt"], "fetch": "text" },
+            { "id": "font", "extensions": ["ttf", "otf", "woff", "woff2"], "fetch": "blob" }
+        ]
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "intentic-everyday-viewers",
+    "version": "1.0.0",
+    "description": "File viewers for the formats a workspace collects that aren't source code — calendars, spreadsheets, GPS tracks, subtitles and fonts",
+    "license": "MIT",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+        "test": "node --test test/parse.test.ts test/activate.test.mjs"
+    },
+    "dependencies": {
+        "@intentic/extension-api": "^1.176.3"
+    },
+    "devDependencies": {
+        "@types/node": "^24.0.0",
+        "@vitejs/plugin-vue": "^6.0.1",
+        "typescript": "^5.9.3",
+        "vite": "^7.1.7",
+        "vue": "^3.5.22",
+        "vue-tsc": "^3.1.1"
+    }
+}
