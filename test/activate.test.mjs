@@ -33,7 +33,7 @@ const hostStub = () => {
     return {
         registered,
         api: {
-            apiVersion: `1.0.0`,
+            apiVersion: `2.0.0`,
             viewers: {
                 register: (viewer) => {
                     assert.ok(declaredViewers.has(viewer.id), `viewer "${viewer.id}" is not declared in contributes.viewers`);
