@@ -34,10 +34,10 @@ sha-pinned — the commit you approve is the code that runs, and there is no bui
 ## Build it yourself
 
 ```sh
-npm install
-npm run typecheck     # vue-tsc over src/ and test/
-npm test              # the parsers, then the built bundle against a manifest-enforcing host stub
-npm run build         # dist/extension.js — one file, vue as the only import
+pnpm install
+pnpm typecheck     # vue-tsc over src/ and test/
+pnpm test              # the parsers, then the built bundle against a manifest-enforcing host stub
+pnpm build         # dist/extension.js — one file, vue as the only import
 ```
 
 `dist/extension.js` is **committed**, because that is what `entry` in the manifest points at and what the

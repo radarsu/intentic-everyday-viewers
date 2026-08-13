@@ -1,10 +1,11 @@
 {
     "name": "intentic-everyday-viewers",
     "version": "1.0.0",
-    "description": "File viewers for the formats a workspace collects that aren't source code — calendars, spreadsheets, GPS tracks, subtitles and fonts",
+    "description": "File viewers for the formats a workspace collects that aren't source code \u2014 calendars, spreadsheets, GPS tracks, subtitles and fonts",
     "license": "MIT",
     "private": true,
     "type": "module",
+    "packageManager": "pnpm@11.13.1",
     "scripts": {
         "build": "vite build",
         "typecheck": "vue-tsc --noEmit -p tsconfig.json",
