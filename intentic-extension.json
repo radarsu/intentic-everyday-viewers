@@ -3,6 +3,7 @@
     "name": "everyday-viewers",
     "version": "1.0.0",
     "category": "workspace",
+    "art": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><rect width=\"32\" height=\"32\" fill=\"#C4417F\"/><rect x=\"4.5\" y=\"8\" width=\"12.5\" height=\"17\" rx=\"2\" fill=\"#F09CC4\" transform=\"rotate(-16 10.75 16.5)\"/><rect x=\"9.75\" y=\"7.5\" width=\"12.5\" height=\"17\" rx=\"2\" fill=\"#F8CBE1\" transform=\"rotate(-5 16 16)\"/><g transform=\"rotate(9 21 15.5)\"><rect x=\"14.75\" y=\"7\" width=\"12.5\" height=\"17\" rx=\"2\" fill=\"#fff\"/><rect x=\"17.4\" y=\"11.2\" width=\"7.2\" height=\"2\" rx=\"1\" fill=\"#C4417F\"/><rect x=\"17.4\" y=\"15\" width=\"7.2\" height=\"2\" rx=\"1\" fill=\"#C4417F\"/><rect x=\"17.4\" y=\"18.8\" width=\"4.6\" height=\"2\" rx=\"1\" fill=\"#EE8FBB\"/></g></svg>",
     "icon": "file",
     "engines": { "intentic": "^2.0.0" },
     "entry": "dist/extension.js",
