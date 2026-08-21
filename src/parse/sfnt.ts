@@ -1,4 +1,4 @@
-/* The `name` table out of a font file — what the font calls itself, as opposed to what someone called the file.
+/* The `name` table out of a font file: what the font calls itself, as opposed to what someone called the file.
  *
  * Only the uncompressed container (.ttf/.otf, and the .ttc collection header) is read. WOFF and WOFF2 compress
  * their tables (zlib and Brotli), and no browser exposes a Brotli decompressor to script, so those fall back to

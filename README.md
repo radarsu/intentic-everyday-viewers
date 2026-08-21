@@ -5,7 +5,7 @@ instead of as the text they happen to be stored as.
 
 | Open a… | And you get |
 | --- | --- |
-| `.ics` `.ical` `.ifb` | The calendar as an agenda — grouped by day, with locations, all-day events and a plain-words note for anything that repeats |
+| `.ics` `.ical` `.ifb` | The calendar as an agenda: grouped by day, with locations, all-day events and a plain-words note for anything that repeats |
 | `.csv` `.tsv` | A sortable, filterable table with a sum/min/max/mean for every numeric column |
 | `.gpx` | The recorded route drawn from the file itself, with distance, elapsed time, pace, climbing and an elevation profile |
 | `.srt` `.vtt` | A searchable transcript with timecodes and the match highlighted |
@@ -13,13 +13,13 @@ instead of as the text they happen to be stored as.
 
 This is an [intentic](https://intentic.dev) extension. It is not part of the app: the core resolves a file to
 text or to opaque bytes and stops there, and the first-party `intentic.viewers` pack handles pictures, PDFs,
-audio, video and Office documents. This one takes the next tier down — the formats that are useful to somebody
+audio, video and Office documents. This one takes the next tier down: the formats that are useful to somebody
 and not to everybody.
 
 ## What it is allowed to do
 
 Nothing but render. The manifest declares **no `permissions.sandbox` at all**, so the host refuses every
-attempt this bundle could make to call the daemon — there is no route it can reach, no file it can write, and
+attempt this bundle could make to call the daemon: there is no route it can reach, no file it can write, and
 nothing it can send anywhere. The host fetches the file, hands the component the content, and gets markup back.
 
 `.gpx` tracks are drawn with **no basemap**, deliberately: a map tile would mean a tile server, which would
@@ -29,7 +29,7 @@ without open internet.
 ## Install
 
 **Capabilities → Add → Extension**, then the repo URL and a full 40-character commit sha. Extensions install
-sha-pinned — the commit you approve is the code that runs, and there is no build step at install time.
+sha-pinned: the commit you approve is the code that runs, and there is no build step at install time.
 
 ## Build it yourself
 

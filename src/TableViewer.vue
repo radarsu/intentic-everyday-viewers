@@ -3,7 +3,7 @@ import { computed, ref } from "vue";
 import { asNumber, columnStats, parseTable } from "./parse/csv";
 import { formatCount } from "./parse/format";
 
-/* A .csv or .tsv as a table you can sort and filter — the three things a person opens a spreadsheet to do, on a
+/* A .csv or .tsv as a table you can sort and filter: the three things a person opens a spreadsheet to do, on a
  * file the editor otherwise shows as one long line of commas. Render-only, like every viewer: no editing, no
  * writing back. */
 
@@ -116,7 +116,7 @@ const round = (value: number): string => (Number.isInteger(value) ? value.toLoca
         </div>
 
         <p v-if="sorted.length > shown.length" class="ev-note">
-            Showing the first {{ formatCount(shown.length) }} rows of {{ formatCount(sorted.length) }} — narrow it with the filter.
+            Showing the first {{ formatCount(shown.length) }} rows of {{ formatCount(sorted.length) }}: narrow it with the filter.
         </p>
 
         <div v-if="stats.length > 0" class="ev-stats">

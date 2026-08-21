@@ -7,7 +7,7 @@ import { readFontNames, type FontNames } from "./parse/sfnt";
  * which is the whole question a .ttf in a folder poses.
  *
  * The FontFace API takes the bytes directly, so nothing is written to disk and nothing is installed on the
- * machine — the face lives in this document and goes away with it. */
+ * machine: the face lives in this document and goes away with it. */
 
 const props = defineProps<{ path: string; blob: Blob }>();
 
@@ -26,7 +26,7 @@ const SIZES = [12, 16, 24, 36, 56, 80];
 const load = async (blob: Blob): Promise<void> => {
     const bytes = new Uint8Array(await blob.arrayBuffer());
     // WOFF/WOFF2 keep their tables compressed, so the name table is unreadable without a decompressor the
-    // browser doesn't expose — the file name stands in, and the specimen below renders either way.
+    // browser doesn't expose: the file name stands in, and the specimen below renders either way.
     names.value = readFontNames(bytes);
     try {
         const face = new FontFace(family, bytes);
@@ -71,7 +71,7 @@ onBeforeUnmount(unload);
         </div>
 
         <div v-if="failed" class="ui-card ui-card-dashed" :style="{ marginTop: `1rem` }">
-            <p class="ev-muted">The browser refused to load this font — the file may be corrupt, or a format it doesn't support.</p>
+            <p class="ev-muted">The browser refused to load this font: the file may be corrupt, or a format it doesn't support.</p>
         </div>
 
         <template v-else>

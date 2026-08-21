@@ -58,7 +58,7 @@ test(`ics: times are the file's wall clock, never this machine's`, () => {
         { year: time?.year, hour: time?.hour, utc: time?.utc },
         { year: 2026, hour: 9, utc: false },
     );
-    // 09:00 in the file prints as 09:00 wherever this test runs — the property the UTC formatting protects.
+    // 09:00 in the file prints as 09:00 wherever this test runs: the property the UTC formatting protects.
     assert.equal(formatEventClock(time!), new Date(Date.UTC(2026, 7, 3, 9, 0)).toLocaleTimeString(undefined, { hour: `2-digit`, minute: `2-digit`, timeZone: `UTC` }));
 });
 
@@ -168,7 +168,7 @@ test(`formatting`, () => {
 });
 
 /* A minimal but structurally real sfnt: header, one table record pointing at a `name` table holding two
- * UTF-16BE records. Hand-built rather than checked in as a binary fixture — a 4 kB blob nobody can read in a
+ * UTF-16BE records. Hand-built rather than checked in as a binary fixture: a 4 kB blob nobody can read in a
  * diff would make this test unmaintainable, and the whole point is the offsets. */
 const buildFont = (family: string, subfamily: string): Uint8Array => {
     const strings = [family, subfamily].map((value) => {

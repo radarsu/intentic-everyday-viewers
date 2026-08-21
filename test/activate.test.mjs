@@ -6,7 +6,7 @@ import { test } from "node:test";
  * whose id `contributes.viewers` never declared is refused. Code and manifest drifting apart is the failure
  * that actually happens, and in the app it shows up as a file type that silently opens as text instead.
  *
- * A DOM stub stands in for the browser because activate() installs the extension's stylesheet — see
+ * A DOM stub stands in for the browser because activate() installs the extension's stylesheet: see
  * src/styles.ts for why that is a sheet rather than SFC <style> blocks. */
 
 const manifest = JSON.parse(await readFile(new URL(`../intentic-extension.json`, import.meta.url), `utf8`));
@@ -64,7 +64,7 @@ test(`activate registers exactly the viewers the manifest declares`, async () =>
         registered.map((viewer) => viewer.id),
         [...declaredViewers.keys()],
     );
-    // Every lazily imported component resolves from inside the single file — a chunk split here would 404 in
+    // Every lazily imported component resolves from inside the single file: a chunk split here would 404 in
     // the browser's blob-URL import, where the failure is far less obvious than in this test.
     for (const viewer of registered) {
         assert.equal(typeof (await viewer.component()), `object`);

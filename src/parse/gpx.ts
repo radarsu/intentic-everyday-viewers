@@ -22,7 +22,7 @@ export interface Track {
     // Wall-clock span of the recording, when it carries timestamps.
     readonly durationSeconds?: number;
     readonly bounds?: { readonly minLat: number; readonly maxLat: number; readonly minLon: number; readonly maxLon: number };
-    // Waypoints (<wpt>) are pins, not part of the line — a summit, a cafe, a photo spot.
+    // Waypoints (<wpt>) are pins, not part of the line: a summit, a cafe, a photo spot.
     readonly waypoints: readonly { readonly lat: number; readonly lon: number; readonly name?: string }[];
 }
 
@@ -78,7 +78,7 @@ export const haversineMeters = (from: TrackPoint, to: TrackPoint): number => {
 };
 
 /* Climbing, with a 3-metre deadband. Consumer GPS altitude wanders by a metre or two while standing still, so
- * summing every positive delta reports hundreds of metres of ascent for a flat ride — the number people
+ * summing every positive delta reports hundreds of metres of ascent for a flat ride: the number people
  * actually compare between apps is a smoothed one, and the deadband is the cheapest honest version of it.
  *
  * The reference stays at the last ACCEPTED sample rather than the last one seen, so a sub-deadband step is
@@ -148,7 +148,7 @@ export const parseTrack = (text: string): Track => {
 };
 
 /* The track as an SVG path, projected equirectangularly and scaled to fit `size`. Longitude is squeezed by
- * cos(latitude) so the shape is not stretched sideways — without it a track at 60°N looks twice as wide as it
+ * cos(latitude) so the shape is not stretched sideways: without it a track at 60°N looks twice as wide as it
  * ran. Good enough for one track's own extent; it is a picture of a shape, not a map anyone navigates by. */
 export const trackPath = (track: Track, size: number, padding: number): { path: string; width: number; height: number } => {
     const { bounds, points } = track;

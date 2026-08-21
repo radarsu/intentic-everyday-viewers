@@ -12,7 +12,7 @@ export interface Cue {
 export interface Subtitles {
     readonly cues: readonly Cue[];
     readonly kind: "srt" | "vtt";
-    // Where the last cue ends — the runtime of the thing this transcribes, near enough to be useful.
+    // Where the last cue ends: the runtime of the thing this transcribes, near enough to be useful.
     readonly durationSeconds: number;
     readonly wordCount: number;
 }

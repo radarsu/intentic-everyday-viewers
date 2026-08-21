@@ -23,7 +23,7 @@ export interface CalendarEvent {
     readonly allDay: boolean;
     readonly location?: string;
     readonly description?: string;
-    // A words-only rendering of RRULE — see the file header for why it is never expanded.
+    // A words-only rendering of RRULE: see the file header for why it is never expanded.
     readonly repeats?: string;
     readonly status?: string;
 }
@@ -32,7 +32,7 @@ export interface Calendar {
     // X-WR-CALNAME when the exporter wrote one (Google, Apple and Outlook all do); the file name otherwise.
     readonly name?: string;
     readonly events: readonly CalendarEvent[];
-    // Lines the file held that were not events (VTODO, VJOURNAL, VFREEBUSY) — worth saying rather than
+    // Lines the file held that were not events (VTODO, VJOURNAL, VFREEBUSY): worth saying rather than
     // rendering an empty sheet for a file that clearly has content.
     readonly otherComponents: readonly string[];
 }

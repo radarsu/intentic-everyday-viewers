@@ -44,7 +44,7 @@ export const formatEventClock = (time: EventTime): string =>
         ? `All day`
         : asUtcDate(time).toLocaleTimeString(undefined, { hour: `2-digit`, minute: `2-digit`, timeZone: `UTC` });
 
-// The key events are grouped by in the agenda — the calendar day, not an instant.
+// The key events are grouped by in the agenda: the calendar day, not an instant.
 export const dayKey = (time: EventTime): string =>
     `${time.year}-${String(time.month).padStart(2, `0`)}-${String(time.day).padStart(2, `0`)}`;
 

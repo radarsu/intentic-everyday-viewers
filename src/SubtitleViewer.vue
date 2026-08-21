@@ -19,7 +19,7 @@ const matches = computed(() => {
     return subtitles.value.cues.filter((cue) => cue.text.toLowerCase().includes(needle));
 });
 
-// The match highlighted inside the cue, as plain segments — v-html would be an injection hole for a file
+// The match highlighted inside the cue, as plain segments: v-html would be an injection hole for a file
 // somebody was sent, and this is a text viewer, so there is nothing to gain by rendering markup.
 const segments = (text: string): { value: string; hit: boolean }[] => {
     const needle = query.value.trim();

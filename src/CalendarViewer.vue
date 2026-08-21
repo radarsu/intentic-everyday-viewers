@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { dayKey, formatEventClock, formatEventDate } from "./parse/format";
 import { parseCalendar, type CalendarEvent } from "./parse/ics";
 
-/* An .ics as an agenda. The file you get when someone exports a calendar, or when a booking mails you one — a
+/* An .ics as an agenda. The file you get when someone exports a calendar, or when a booking mails you one: a
  * flat list of BEGIN:VEVENT blocks that says nothing to a person reading it in a text editor. */
 
 const props = defineProps<{ path: string; text: string }>();

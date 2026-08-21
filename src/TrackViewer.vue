@@ -4,7 +4,7 @@ import { formatCount, formatDistance, formatDuration } from "./parse/format";
 import { elevationPath, parseTrack, trackPath } from "./parse/gpx";
 
 /* A .gpx as the route it recorded. Every watch, phone and bike computer exports this format, and every one of
- * them means "open it in the app that made it" — this is the version for a file sitting in a folder. */
+ * them means "open it in the app that made it": this is the version for a file sitting in a folder. */
 
 const props = defineProps<{ path: string; text: string }>();
 
@@ -18,7 +18,7 @@ const profile = computed(() => elevationPath(track.value, PROFILE.width, PROFILE
 
 const fileName = computed(() => props.path.slice(props.path.lastIndexOf(`/`) + 1));
 
-// Only shown when the recording carries timestamps — average pace over a route someone drew by hand would be
+// Only shown when the recording carries timestamps: average pace over a route someone drew by hand would be
 // a number about nothing.
 const pace = computed(() => {
     const { distanceMeters, durationSeconds } = track.value;
@@ -45,7 +45,7 @@ const elevations = computed(() => track.value.points.map((point) => point.ele).f
         </div>
 
         <div v-if="track.points.length < 2" class="ui-card ui-card-dashed" :style="{ marginTop: `1rem` }">
-            <p class="ev-muted">No track points in this file — it may hold only waypoints, or be a route this viewer can't read.</p>
+            <p class="ev-muted">No track points in this file: it may hold only waypoints, or be a route this viewer can't read.</p>
         </div>
 
         <template v-else>
@@ -96,7 +96,7 @@ const elevations = computed(() => track.value.points.map((point) => point.ele).f
                 {{ track.waypoints.length }} waypoint{{ track.waypoints.length === 1 ? `` : `s` }}:
                 {{ track.waypoints.map((point) => point.name).filter(Boolean).join(`, `) || `unnamed` }}
             </p>
-            <p class="ev-note">No basemap by design — the shape is drawn from the file alone, so nothing here reaches a tile server.</p>
+            <p class="ev-note">No basemap by design: the shape is drawn from the file alone, so nothing here reaches a tile server.</p>
         </template>
     </div>
 </template>
