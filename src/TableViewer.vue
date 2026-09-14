@@ -3,9 +3,7 @@ import { computed, ref } from "vue";
 import { asNumber, columnStats, parseTable } from "./parse/csv";
 import { formatCount } from "./parse/format";
 
-/* A .csv or .tsv as a table you can sort and filter: the three things a person opens a spreadsheet to do, on a
- * file the editor otherwise shows as one long line of commas. Render-only, like every viewer: no editing, no
- * writing back. */
+/* A .csv or .tsv as a table you can sort and filter: the three things a person opens a spreadsheet to do. */
 
 const props = defineProps<{ path: string; text: string }>();
 

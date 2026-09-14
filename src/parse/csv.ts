@@ -1,7 +1,4 @@
-/* Delimited text → a table. RFC 4180 quoting (doubled quotes inside quoted fields, delimiters and newlines
- * allowed inside them), because the files people actually export: bank statements, form responses, anything
- * with an address in it: are full of quoted commas, and a split(",") viewer misreads exactly the rows the
- * reader cares about. */
+/* Delimited text → a table. */
 
 export interface Table {
     readonly columns: readonly string[];
@@ -14,10 +11,7 @@ export interface Table {
 
 const DELIMITERS = [`,`, `\t`, `;`, `|`] as const;
 
-/* Which delimiter this file uses, decided on the first line OUTSIDE quotes. Sniffing beats trusting the
- * extension: European exports are `;`-delimited and still called .csv, and a .tsv with one stray comma is
- * still tab-delimited. Ties go to the earlier entry in DELIMITERS (comma first), and a single-column file
- * legitimately has no delimiter at all: it reads as one column, which is what it is. */
+/* Which delimiter this file uses, decided on the first line OUTSIDE quotes. */
 export const sniffDelimiter = (text: string): string => {
     const line = firstLogicalLine(text);
     let best = `,`;
@@ -117,9 +111,7 @@ export const parseRows = (text: string, delimiter: string): string[][] => {
     return rows.filter((entry) => entry.length > 1 || (entry[0] ?? ``).trim() !== ``);
 };
 
-/* Is this column a number column? Thousands separators and a leading currency symbol are stripped first,
- * because "1,234.50" and "$12" are what a spreadsheet exports and a column of them is still a number column:
- * the alternative is right-aligning nothing in a financial file, which is every file this viewer will meet. */
+/* Is this column a number column? */
 export const asNumber = (cell: string): number | undefined => {
     const trimmed = cell.trim();
     if (trimmed === ``) {

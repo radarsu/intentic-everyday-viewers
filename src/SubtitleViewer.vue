@@ -3,8 +3,7 @@ import { computed, ref } from "vue";
 import { formatClock, formatCount, formatDuration } from "./parse/format";
 import { parseSubtitles } from "./parse/subtitles";
 
-/* An .srt or .vtt as a searchable transcript. The reason to open one of these is almost always "find the bit
- * where they said X", which is a search box over cue text and a timecode to jump to in whatever is playing it. */
+/* An .srt or .vtt as a searchable transcript. */
 
 const props = defineProps<{ path: string; text: string }>();
 

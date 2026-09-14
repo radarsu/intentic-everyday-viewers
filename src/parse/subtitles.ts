@@ -1,6 +1,4 @@
-/* SubRip (.srt) and WebVTT (.vtt) → a transcript with timecodes. One parser for both: they differ in the
- * decimal separator, an optional header, and cue settings the reader does not need, so splitting them would be
- * two copies of the same block walk. */
+/* SubRip (.srt) and WebVTT (.vtt) → a transcript with timecodes. */
 
 export interface Cue {
     readonly index: number;

@@ -2,12 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 
-/* The built bundle against a host stub that enforces the manifest, exactly as the real host does: a viewer
- * whose id `contributes.viewers` never declared is refused. Code and manifest drifting apart is the failure
- * that actually happens, and in the app it shows up as a file type that silently opens as text instead.
- *
- * A DOM stub stands in for the browser because activate() installs the extension's stylesheet: see
- * src/styles.ts for why that is a sheet rather than SFC <style> blocks. */
+/* The built bundle against a host stub that enforces the manifest, exactly as the real host does. */
 
 const manifest = JSON.parse(await readFile(new URL(`../intentic-extension.json`, import.meta.url), `utf8`));
 

@@ -1,7 +1,4 @@
-/* iCalendar (RFC 5545) → the events a person wants to see. Deliberately a READER, not a calendar engine:
- * recurrence rules are summarised in words rather than expanded, because expanding them means a timezone
- * database, and a viewer that quietly showed the wrong local times would be worse than one that says
- * "repeats weekly" and lets the reader open the real calendar. */
+/* iCalendar (RFC 5545) → the events a person wants to see. */
 
 export interface EventTime {
     // Wall-clock parts as written in the file. Kept as parts rather than a Date because a floating or TZID
@@ -61,9 +58,7 @@ const unfold = (text: string): string[] => {
 const unescapeText = (value: string): string =>
     value.replace(/\\([\\;,nN])/g, (_, char: string) => (char === `n` || char === `N` ? `\n` : char));
 
-/* One content line: NAME(;PARAM=VALUE)*:VALUE. Parameter values may be quoted and may contain a colon
- * (TZID="Europe/Berlin" does, and a naive indexOf(":") would cut the line in the middle of it), so the split
- * point is the first colon OUTSIDE quotes. */
+/* One content line: NAME(;PARAM=VALUE)*:VALUE. */
 const parseProperty = (line: string): Property | undefined => {
     let quoted = false;
     let colon = -1;

@@ -3,8 +3,7 @@ import { computed } from "vue";
 import { formatCount, formatDistance, formatDuration } from "./parse/format";
 import { elevationPath, parseTrack, trackPath } from "./parse/gpx";
 
-/* A .gpx as the route it recorded. Every watch, phone and bike computer exports this format, and every one of
- * them means "open it in the app that made it": this is the version for a file sitting in a folder. */
+/* A .gpx as the route it recorded. */
 
 const props = defineProps<{ path: string; text: string }>();
 

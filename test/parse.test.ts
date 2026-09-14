@@ -7,8 +7,7 @@ import { describeRecurrence, parseCalendar, parseIcsTime } from "../src/parse/ic
 import { readFontNames } from "../src/parse/sfnt.ts";
 import { parseSubtitles, parseTimecode } from "../src/parse/subtitles.ts";
 
-/* The parsers, against the shapes real exporters actually produce. Node's own runner and no test dependency:
- * node 24 strips the types, so these run straight off src/ with nothing built. */
+/* The parsers, against the shapes real exporters actually produce. */
 
 test(`ics: folded lines, escapes and an all-day event`, () => {
     const calendar = parseCalendar(
@@ -167,9 +166,7 @@ test(`formatting`, () => {
     assert.equal(formatDistance(1200), `1.20 km`);
 });
 
-/* A minimal but structurally real sfnt: header, one table record pointing at a `name` table holding two
- * UTF-16BE records. Hand-built rather than checked in as a binary fixture: a 4 kB blob nobody can read in a
- * diff would make this test unmaintainable, and the whole point is the offsets. */
+/* A minimal but structurally real sfnt: header, one table record pointing at a `name` table holding two. */
 const buildFont = (family: string, subfamily: string): Uint8Array => {
     const strings = [family, subfamily].map((value) => {
         const bytes = new Uint8Array(value.length * 2);

@@ -1,9 +1,4 @@
-/* GPX → a route you can look at. The file a watch, a phone or a bike computer exports, rendered as its own
- * shape plus the four numbers the person who recorded it wants: how far, how long, how much climbing, how fast.
- *
- * NO MAP TILES, deliberately. A basemap means a tile server, which means this viewer would need the open
- * internet from inside a sandbox that may not have it, and would leak the coordinates of every track opened to
- * whoever serves the tiles. The track's own shape is the part that identifies a route to the person who ran it. */
+/* GPX → a route you can look at. */
 
 export interface TrackPoint {
     readonly lat: number;
@@ -37,10 +32,7 @@ const child = (block: string, name: string): string | undefined => {
     return match === null ? undefined : match[1]?.trim();
 };
 
-/* Regex over XML, which is normally a mistake and here is the right call: GPX's grammar for the two elements
- * this reads is fixed by the schema (trkpt/rtept carry lat+lon attributes and optional ele/time children),
- * the alternative is a DOM parser dependency in a bundle that must stay one file, and a malformed file
- * degrades to "fewer points" rather than to a thrown error. */
+/* Regex over XML, which is normally a mistake and here is the right call: GPX's grammar for the two elements. */
 const readPoints = (text: string, tag: string): TrackPoint[] => {
     const points: TrackPoint[] = [];
     const pattern = new RegExp(`<${tag}\\b([^>]*)(?:/>|>([\\s\\S]*?)</${tag}>)`, `g`);
@@ -77,13 +69,7 @@ export const haversineMeters = (from: TrackPoint, to: TrackPoint): number => {
     return 2 * EARTH_RADIUS_METERS * Math.asin(Math.min(1, Math.sqrt(a)));
 };
 
-/* Climbing, with a 3-metre deadband. Consumer GPS altitude wanders by a metre or two while standing still, so
- * summing every positive delta reports hundreds of metres of ascent for a flat ride: the number people
- * actually compare between apps is a smoothed one, and the deadband is the cheapest honest version of it.
- *
- * The reference stays at the last ACCEPTED sample rather than the last one seen, so a sub-deadband step is
- * deferred, not discarded: a long shallow climb accumulates its true height instead of being filtered away one
- * metre at a time. Only noise that comes back down is dropped, which is exactly the intent. */
+/* Climbing, with a 3-metre deadband. Consumer GPS altitude wanders by a metre or two while standing still, so. */
 const ELEVATION_DEADBAND_METERS = 3;
 
 export const elevationChange = (points: readonly TrackPoint[]): { ascent: number; descent: number } => {
@@ -147,9 +133,7 @@ export const parseTrack = (text: string): Track => {
     };
 };
 
-/* The track as an SVG path, projected equirectangularly and scaled to fit `size`. Longitude is squeezed by
- * cos(latitude) so the shape is not stretched sideways: without it a track at 60°N looks twice as wide as it
- * ran. Good enough for one track's own extent; it is a picture of a shape, not a map anyone navigates by. */
+/* The track as an SVG path, projected equirectangularly and scaled to fit `size`. Longitude is squeezed by. */
 export const trackPath = (track: Track, size: number, padding: number): { path: string; width: number; height: number } => {
     const { bounds, points } = track;
     if (bounds === undefined || points.length < 2) {

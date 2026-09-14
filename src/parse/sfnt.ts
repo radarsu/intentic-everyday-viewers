@@ -1,9 +1,4 @@
-/* The `name` table out of a font file: what the font calls itself, as opposed to what someone called the file.
- *
- * Only the uncompressed container (.ttf/.otf, and the .ttc collection header) is read. WOFF and WOFF2 compress
- * their tables (zlib and Brotli), and no browser exposes a Brotli decompressor to script, so those fall back to
- * the file name. That is the honest boundary: a specimen sheet that renders is the point, and the family name
- * is a nicety on top of it. */
+/* The `name` table out of a font file: what the font calls itself, as opposed to what someone called the file. */
 
 export interface FontNames {
     readonly family?: string;

@@ -3,11 +3,7 @@ import { onBeforeUnmount, ref, shallowRef, watch } from "vue";
 import { formatBytes } from "./parse/format";
 import { readFontNames, type FontNames } from "./parse/sfnt";
 
-/* A font file, rendered in itself. The only way to answer "what does this one look like" without installing it,
- * which is the whole question a .ttf in a folder poses.
- *
- * The FontFace API takes the bytes directly, so nothing is written to disk and nothing is installed on the
- * machine: the face lives in this document and goes away with it. */
+/* A font file, rendered in itself. */
 
 const props = defineProps<{ path: string; blob: Blob }>();
 

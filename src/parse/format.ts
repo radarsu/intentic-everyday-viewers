@@ -30,9 +30,7 @@ export const formatDistance = (meters: number): string =>
 
 export const formatCount = (value: number): string => value.toLocaleString();
 
-/* An event's parts as UTC so nothing shifts. EventTime holds wall-clock parts exactly as the file wrote them
- * (see ics.ts); building a local Date from them would move a 09:00 meeting by this browser's offset, which is
- * the one thing a calendar viewer must never do. Formatting in UTC prints the parts back unchanged. */
+/* An event's parts as UTC so nothing shifts. EventTime holds wall-clock parts exactly as the file wrote them. */
 const asUtcDate = (time: EventTime): Date =>
     new Date(Date.UTC(time.year, time.month - 1, time.day, time.hour ?? 0, time.minute ?? 0));
 
