@@ -28,8 +28,9 @@ without open internet.
 
 ## Install
 
-**Capabilities → Add → Extension**, then the repo URL and a full 40-character commit sha. Extensions install
-sha-pinned: the commit you approve is the code that runs, and there is no build step at install time.
+**Capabilities → Add → Extension**, then the repo URL and whichever branch or release you want. Extensions
+install sha-pinned: the form resolves the name you pick to the commit it points at right then, so the commit
+you approve is the code that runs, and there is no build step at install time.
 
 ## Build it yourself
 
